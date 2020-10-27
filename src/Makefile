@@ -15,7 +15,7 @@ all: main
 %.o: %.cpp
 	$(CXX) -c $^ -o $@ $(CXXFLAGS)
 
-main: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o main.o
+main: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.o main.o
 	$(CXX) $^ -o $@ $(LDFLAGS)
 
 
