@@ -9,13 +9,13 @@ CXXFLAGS = -std=c++11 -g
 LDFLAGS = 
 
 # Comando default: adicione os testes aqui
-all: main
+all: main.exe
 
 # Comando generico de .o
 %.o: %.cpp
 	$(CXX) -c $^ -o $@ $(CXXFLAGS)
 
-main: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.o main.o
+main.exe: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.o main.o
 	$(CXX) $^ -o $@ $(LDFLAGS)
 
 
