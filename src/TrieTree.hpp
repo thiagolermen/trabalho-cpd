@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#define USED_ALPHABET_SIZE 70
+#define USED_ALPHABET_SIZE 128
 
 using namespace std;
 

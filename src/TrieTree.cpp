@@ -83,4 +83,6 @@ vector<string> TrieNode::search_prefix(string input)
 
     // if the prefix is on the tree, return all children
     //  to do ..
+
+    return output;
 }
