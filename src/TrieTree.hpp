@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
-#define USED_ALPHABET_SIZE 128
+#define USED_ALPHABET_SIZE 70
 
 using namespace std;
 
@@ -27,6 +28,10 @@ class TrieNode{
     void insert(string input);
 
     bool search(string input);
+
+    bool haveChildren(TrieNode* current);
+
+    vector<string> search_prefix(string input);
 
 };
 
