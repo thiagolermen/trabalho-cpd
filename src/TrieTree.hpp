@@ -14,6 +14,9 @@ class TrieNode{
     public:
         TrieNode* children[USED_ALPHABET_SIZE];
         bool isEndOfWord;
+        int movie_id;
+        string word;
+        vector<string> genres;
 
         TrieNode()// Constructor
         {
@@ -25,11 +28,13 @@ class TrieNode{
             }
         }
 
-    void insert(string input);
+    void insert(int movie_id, string title, vector<string> genres);
 
     bool search(string input);
 
     bool haveChildren(TrieNode* current);
+
+    void walkThrough(vector<string> &output);
 
     vector<string> search_prefix(string input);
 

@@ -3,22 +3,25 @@
 using namespace std;
 
 
-void TrieNode::insert(string input)
+void TrieNode::insert(int movie_id, string title, vector<string> genres)
 {
     // starts from the root node
     TrieNode* current = this;
 
-    for(int i = 0; i < input.size(); i++)
+    for(int i = 0; i < title.size(); i++)
     {
         // if the path doesnt exists uses the constructor to create a new node
-        if(current->children[input[i]] == nullptr)
-            current->children[input[i]] = new TrieNode();
+        if(current->children[title[i]] == nullptr)
+            current->children[title[i]] = new TrieNode();
 
         // walk to the next node
-        current = current->children[input[i]];
+        current = current->children[title[i]];
     }
     // set current node as the end of the string
     current->isEndOfWord = true;
+    current->word = title;
+    current->movie_id = movie_id;
+    current->genres = genres;
 }
 
 bool TrieNode::search(string input)
@@ -52,6 +55,19 @@ bool TrieNode::haveChildren(TrieNode* current)
     return false;
 }
 
+void TrieNode::walkThrough(vector<string> &output){
+    
+    if (this->isEndOfWord){
+        output.push_back(this->word);
+    }
+
+    for(int i = 0; i < USED_ALPHABET_SIZE; i++){
+        if (this->children[i] != nullptr){
+            this->children[i]->walkThrough(output);
+        }
+    }
+}
+
 vector<string> TrieNode::search_prefix(string input)
 {
     vector<string> output;
@@ -82,7 +98,7 @@ vector<string> TrieNode::search_prefix(string input)
     }
 
     // if the prefix is on the tree, return all children
-    //  to do ..
+    current->walkThrough(output);
 
     return output;
 }
