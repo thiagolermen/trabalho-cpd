@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "BinarySearchTree.hpp"
-#include "HashTable.hpp"
 #include "SeparateChaining.hpp"
 #include "TrieTree.hpp"
 

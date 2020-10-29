@@ -2,7 +2,6 @@
 
 #include "TrieTree.hpp"
 #include "BinarySearchTree.hpp"
-#include "HashTable.hpp"
 #include "SeparateChaining.hpp"
 
 using namespace std;
@@ -16,42 +15,56 @@ void testTrieTree(){
     trie->insert(4,"lolzeira",{"Comédia"});
     trie->insert(5,"usguri",{"Comédia"});
     trie->insert(6,"alex andre",{"Comédia"});
+    trie->insert(7,"Carálho irmão",{"Comédia"});
+    trie->insert(7,"mãno do céu: 2",{"Comédia"});
 
     cout << "=====================================" << endl;
     cout << "TESTE DA ESTRUTURA DE DADOS TRIE TREE" << endl;
     cout << "=====================================" << endl;
     if(trie->search("thithigrao"))
-        cout << "found" << endl;
+        cout << "thithigrao: "<< "found" << endl;
     else
-        cout << "not found" << endl;
+        cout  << "thithigrao: " << "not found" << endl;
     
     if(trie->search("lolzinho69"))
-        cout << "found" << endl;
+        cout  << "lolzinho69: " << "found" << endl;
     else
-        cout << "not found" << endl;
+        cout  << "lolzinho69: " << "not found" << endl;
 
     if(trie->search("usguri"))
-        cout << "found" << endl;
+        cout  << "usguri: " << "found" << endl;
     else
-        cout << "not found" << endl;
+        cout  << "usguri: " << "not found" << endl;
 
     if(trie->search("alex andre"))
-        cout << "found" << endl;
+        cout  << "alex andre: " << "found" << endl;
     else
-        cout << "not found" << endl;
+        cout  << "alex andre: " << "not found" << endl;
 
     if(trie->search("lolzinho"))
-        cout << "found" << endl;
+        cout  << "lolzinho: " << "found" << endl;
     else
-        cout << "not found" << endl;
+        cout  << "lolzinho: " << "not found" << endl;
+    
+    if(trie->search("mãno do céu: 2"))
+        cout  << "mãno do céu: 2: " << "found" << endl;
+    else
+        cout  << "mãno do céu: 2: " << "not found" << endl;
 
+    cout << "-----";
+    cout << endl << "Test 'search prefix' " << endl;
     vector<string> output = trie->search_prefix("lol");
     cout << endl;
     cout << "Movie ID" << ";" << "Title" << ";" <<"Genres" << endl;
     for(int i = 0 ; i < output.size(); i++)
         cout << output[i] << ";"<< endl;
 
-    cout << "=====================================" << endl;
+    output = trie->search_prefix("Cara");
+    cout << endl;
+    cout << "Movie ID" << ";" << "Title" << ";" <<"Genres" << endl;
+    for(int i = 0 ; i < output.size(); i++)
+        cout << output[i] << ";"<< endl;
+
 }
 
 void testSeparateChaining(){
@@ -63,20 +76,26 @@ void testSeparateChaining(){
     movies.insertKey("lolzinho");
     movies.insertKey("o brabo");
     movies.insertKey("alex andre");
+    movies.insertKey("os guris");
 
     cout << "========================================================" << endl;
     cout << "TESTE DA ESTRUTURA DE DADOS HASH TABLE SEPARATE CHAINING" << endl;
     cout << "========================================================" << endl;
 
-    cout << movies.search("thithigrao") << endl;
-    cout << movies.search("lolzinho") << endl;
-    cout << movies.search("lol") << endl;
-    cout << movies.search("alex andre") << endl;
+    cout << "thithigrao: " << movies.search("thithigrao") << endl;
+    cout << "lolzinho: " << movies.search("lolzinho") << endl;
+    cout << "lol: " << movies.search("lol") << endl;
+    cout << "alex andre: " << movies.search("alex andre") << endl;
+    cout << "usguri: " << movies.search("usguri") << endl;
+
 
 }
 
 int main()
 {
+    //Trie Tree Test
+    testTrieTree();
+    // Separate Chaining Test
     testSeparateChaining();
 
     return 0;
