@@ -53,9 +53,31 @@ void testTrieTree(){
 
     cout << "=====================================" << endl;
 }
+
+void testSeparateChaining(){
+
+    SeparateChainingHash movies = SeparateChainingHash(7);
+
+    movies.insertKey("thithigrao");
+    movies.insertKey("lolzinho eu quero uma skin do jax cajado divino");
+    movies.insertKey("lolzinho");
+    movies.insertKey("o brabo");
+    movies.insertKey("alex andre");
+
+    cout << "========================================================" << endl;
+    cout << "TESTE DA ESTRUTURA DE DADOS HASH TABLE SEPARATE CHAINING" << endl;
+    cout << "========================================================" << endl;
+
+    cout << movies.search("thithigrao") << endl;
+    cout << movies.search("lolzinho") << endl;
+    cout << movies.search("lol") << endl;
+    cout << movies.search("alex andre") << endl;
+
+}
+
 int main()
 {
-    testTrieTree();
+    testSeparateChaining();
 
     return 0;
 }
