@@ -3,6 +3,7 @@
 #include "TrieTree.hpp"
 #include "BinarySearchTree.hpp"
 #include "SeparateChaining.hpp"
+#include "AuxiliaryFunctions.hpp"
 
 using namespace std;
 
@@ -91,12 +92,29 @@ void testSeparateChaining(){
 
 }
 
+void testFunctions(){
+
+    vector<string> meuVetor;
+
+    meuVetor.push_back("coe");
+    meuVetor.push_back("thithigrao");    
+    meuVetor.push_back("alex andre");    
+    meuVetor.push_back("lolzinho");
+    meuVetor.push_back("quero a skin cajado divino do jax, rito gomes!");
+
+    printVector_string(meuVetor);
+}
+
 int main()
 {
-    //Trie Tree Test
-    testTrieTree();
+    // Trie Tree Test
+    //testTrieTree();
+
     // Separate Chaining Test
-    testSeparateChaining();
+    //testSeparateChaining();
+
+    // auxiliary functions test
+    testFunctions();
 
     return 0;
 }
