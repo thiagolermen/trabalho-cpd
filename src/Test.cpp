@@ -103,6 +103,10 @@ void testFunctions(){
     meuVetor.push_back("quero a skin cajado divino do jax, rito gomes!");
 
     printVector_string(meuVetor);
+
+
+    cout << "TESTE FUNCAO TEMPLATE MAX" << endl;
+    cout << max(1.32, 1.33) << endl;// pode usar o max<tipo> pra pre definir o tipo dos parametros, ou void pra ser o tipo que recebe
 }
 
 int main()
