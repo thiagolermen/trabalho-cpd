@@ -20,7 +20,7 @@ void TrieNode::insert(int movie_id, string title, vector<string> genres)
     // set current node as the end of the string
     current->isEndOfWord = true;
     current->word = title;
-    current->movie_id = movie_id;
+    current->movieId = movie_id;
     current->genres = genres;
 }
 

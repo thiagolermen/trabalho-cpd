@@ -14,16 +14,14 @@ class TrieNode{
     public:
         TrieNode* children[USED_ALPHABET_SIZE];
         bool isEndOfWord;
-        int movie_id;
+        int movieId;
         string word;
         vector<string> genres;
 
-        TrieNode()// Constructor
-        {
+        TrieNode(){// Constructor
             this->isEndOfWord = false;
 
-            for(int i = 0; i < USED_ALPHABET_SIZE; i++)
-            {
+            for(int i = 0; i < USED_ALPHABET_SIZE; i++){
                 this->children[i] = nullptr;
             }
         }

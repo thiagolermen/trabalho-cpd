@@ -23,13 +23,13 @@ Test.exe: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.
 
 
 # Limpa os arquivos construidos
-clean_o:
+clear_o:
 	$(RM) *.o
 
 # Limpa os arquivos construidos
-clean_exe:
+clear_exe:
 	$(RM) *.exe
 
 # Limpa os arquivos construidos
-clean_all:
+clear_all:
 	$(RM) *.o *.exe

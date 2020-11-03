@@ -15,7 +15,7 @@ using namespace std;
     void printVector_string(vector<string> input);
 
     // template test
-    // template<class T> T max(T a, T b);
+
 
 
 #endif
