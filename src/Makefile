@@ -15,10 +15,10 @@ all: main.exe Test.exe
 %.o: %.cpp
 	$(CXX) -c $^ -o $@ $(CXXFLAGS)
 
-main.exe: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.o AuxiliaryFunctions.o main.o
+main.exe: AuxiliaryFunctions.o BinarySearchTree.o Menu.o SeparateChaining.o SortedArray.o TrieTree.o main.o
 	$(CXX) $^ -o $@ $(LDFLAGS)
 
-Test.exe: BinarySearchTree.o LinearProbing.o SeparateChaining.o TrieTree.o Menu.o AuxiliaryFunctions.o Test.o
+Test.exe: AuxiliaryFunctions.o BinarySearchTree.o Menu.o SeparateChaining.o SortedArray.o TrieTree.o Test.o
 	$(CXX) $^ -o $@ $(LDFLAGS)
 
 

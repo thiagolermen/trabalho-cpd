@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+#include "SortedArray.hpp"
+
 using namespace std;
 
 class binaryNode{
@@ -17,11 +19,14 @@ class binaryNode{
         binaryNode(){ // constructor
             this->Lson = nullptr;
             this->Rson = nullptr;
+            this->movieId = 0;
         }
 
-    void insert(int movie_id, string title, vector<string> genres);
+    binaryNode* newNode(arrNode a);
 
-    void search(int movie_id);
+    binaryNode* sArr_to_BBST(vector<arrNode> arr, int begin, int end);
+
+    void printLeftWalk(binaryNode* node);
 };
 
 #endif

@@ -1,9 +1,10 @@
 #include <iostream>
 
-#include "TrieTree.hpp"
+#include "AuxiliaryFunctions.hpp"
 #include "BinarySearchTree.hpp"
 #include "SeparateChaining.hpp"
-#include "AuxiliaryFunctions.hpp"
+#include "SortedArray.hpp"
+#include "TrieTree.hpp"
 
 using namespace std;
 
@@ -106,6 +107,33 @@ void testFunctions(){
     
 }
 
+void testBBST(){
+
+    cout << "================================================" << endl;
+    cout << "TESTE DA ESTRUTURA DE DADOS BALANCED BINARY TREE" << endl;
+    cout << "================================================" << endl;
+
+    vector<string> genres;
+    string title = "um titulo ae";
+
+    vector<arrNode> arr;
+    arr.push_back(arrNode(1, title, genres));
+    arr.push_back(arrNode(2, title, genres));
+    arr.push_back(arrNode(3, title, genres));
+    arr.push_back(arrNode(4, title, genres));
+    arr.push_back(arrNode(5, title, genres));
+    arr.push_back(arrNode(6, title, genres));
+    arr.push_back(arrNode(7, title, genres));
+    arr.push_back(arrNode(8, title, genres));
+
+    binaryNode* root;
+    root->sArr_to_BBST(arr, 0, arr.size()-1);
+
+    cout << "BBST constructed:" << endl;
+    root->printLeftWalk(root);
+
+}
+
 int main()
 {
     // Trie Tree Test
@@ -115,7 +143,9 @@ int main()
     //testSeparateChaining();
 
     // auxiliary functions test
-    testFunctions();
+    //testFunctions();
+
+    testBBST();
 
     return 0;
 }

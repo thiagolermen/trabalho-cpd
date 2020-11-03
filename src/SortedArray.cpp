@@ -1,3 +1,3 @@
-#include "SortedArrey.hpp"
+#include "SortedArray.hpp"
 
 using namespace std;
