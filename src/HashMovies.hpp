@@ -1,34 +1,36 @@
-#ifndef SEPARATE_CHAINING
-#define SEPARATE_CHAINING
+#ifndef HASH_MOVIES_H
+#define HASH_MOVIES_H
 
 #include <list>
 #include <cmath>
 #include <string>
 #include <iostream>
 
+#include "Movie.hpp"
+
 using namespace std;
 
 
 // Hash Map, using separate chaining, declaration
-class SeparateChainingHash{
+class HashMovies{
 
     // Data members can be accessed using methods
     private:
         int TABLE_SIZE;
-        list<string> *table; // Pointer to an array containing the lists
+        list<Movie*> *table; // Pointer to an array containing the lists
     
     // Methods
     public:
 
-        SeparateChainingHash(int sz); // Constructor
+        HashMovies(int sz); // Constructor
         
-        unsigned hashCode(string s);
+        unsigned hashCode(int id);
 
-        int hashFunction(string s);
+        int hashFunction(int id);
 
-        void insertKey(string key);
+        void insertKey(Movie* key);
 
-        bool search(string key);
+        Movie* search(int id);
 
         int getTableSize();
 
@@ -37,5 +39,7 @@ class SeparateChainingHash{
         
 
 };
+
+
 
 #endif

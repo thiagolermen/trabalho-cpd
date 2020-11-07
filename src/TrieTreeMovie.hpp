@@ -1,5 +1,5 @@
-#ifndef TRIE_TREE
-#define TRIE_TREE
+#ifndef TRIE_TREE_MOVIE_H
+#define TRIE_TREE_MOVIE_H
 
 #include <iostream>
 #include <string>
@@ -9,16 +9,15 @@
 
 using namespace std;
 
-class TrieNode{
+class TrieNodeMovie{
 
     public:
-        TrieNode* children[USED_ALPHABET_SIZE];
+        TrieNodeMovie* children[USED_ALPHABET_SIZE];
         bool isEndOfWord;
         int movieId;
         string word;
-        vector<string> genres;
 
-        TrieNode(){// Constructor
+        TrieNodeMovie(){// Constructor
             this->isEndOfWord = false;
 
             for(int i = 0; i < USED_ALPHABET_SIZE; i++){
@@ -26,15 +25,17 @@ class TrieNode{
             }
         }
 
-    void insert(int movie_id, string title, vector<string> genres);
+    void insert(int movie_id, string title);
 
-    bool search(string input);
+    int search(string input);
 
-    bool haveChildren(TrieNode* current);
+    bool haveChildren(TrieNodeMovie* current);
 
     void walkThrough(vector<string> &output);
 
     vector<string> search_prefix(string input);
+
+    vector<int> search_prefix_id(string input);
 
 };
 
