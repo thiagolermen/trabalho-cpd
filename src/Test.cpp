@@ -30,7 +30,7 @@ void testTrieTreeMovie(){
     cout << "usguri: "<< trie->search("usguri") << endl;
     
     cout << "-----";
-    cout << endl << "Test 'search prefix' " << endl;
+    cout << endl << "Test 'search prefix' Star T" << endl;
     vector<string> output = trie->search_prefix("\"Star T");
     cout << endl;
     cout << "Movie ID" << ";" << "Title" << ";" <<"Genres" << endl;
