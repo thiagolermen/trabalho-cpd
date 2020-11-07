@@ -1,5 +1,7 @@
 #include "AuxiliaryFunctions.hpp"
 
+#define TABLE_SZ 138493
+
 using namespace std;
 
 void printVector_string(vector<string> input){
@@ -96,6 +98,7 @@ vector<tuple<int, string>> loadTag(string name){
 }
 
 void loadMiniRating(string name, HashUsers* hash){
+
     ifstream file;
     string first_line;
     string user_id;
@@ -125,5 +128,17 @@ void loadMiniRating(string name, HashUsers* hash){
     }
 
     file.close();
+
+}
+
+TrieNodeMovie* loadTrieTreeMovie(vector<Movie*> movies){
+
+    TrieNodeMovie* output = new TrieNodeMovie();
+
+    for (vector<Movie*>::iterator it = movies.begin(); it != movies.end();it++){
+        output->insert((*it)->getMovieId(), (*it)->getTitle());
+    }
+
+    return output;
 
 }

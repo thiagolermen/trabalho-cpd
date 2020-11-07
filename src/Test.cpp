@@ -14,79 +14,28 @@ using namespace std;
 
 
 void testTrieTreeMovie(){
-    TrieNodeMovie* trie = new TrieNodeMovie();
-
-    Movie m1("thithigrao", 1, {"Comédia"});
-    Movie m2("lolzinho", 2, {"Comédia"});
-    Movie m3("alex andre", 3, {"Comédia"});
-    Movie m4("usguri", 4, {"Comédia"});
-    Movie m5("Carai tio", 5, {"Comédia"});
-    Movie m6("lolzeira", 6, {"Comédia"});
-
-    trie->insert(m1.getMovieId(), m1.getTitle());
-    trie->insert(m2.getMovieId(), m2.getTitle());
-    trie->insert(m3.getMovieId(), m3.getTitle());
-    trie->insert(m4.getMovieId(), m4.getTitle());
-    trie->insert(m5.getMovieId(), m5.getTitle());
-    trie->insert(m6.getMovieId(), m6.getTitle());
 
     cout << "===========================================" << endl;
     cout << "TESTE DA ESTRUTURA DE DADOS TRIE TREE MOVIE" << endl;
     cout << "===========================================" << endl;
-    if(trie->search("thithigrao"))
-        cout << "thithigrao: "<< "found" << endl;
-    else
-        cout  << "thithigrao: " << "not found" << endl;
+
+    TrieNodeMovie* trie = new TrieNodeMovie();
+
+    vector<Movie*> movies = loadMovie("../data/movie_clean.csv");
+
+    trie = loadTrieTreeMovie(movies);
+
+    cout << "Toy Story (1995):" << trie->search("\"Toy Story (1995)\"") << endl;
+    cout << "Four Rooms (1995): " << trie->search("\"Four Rooms (1995)\"") << endl;
+    cout << "usguri: "<< trie->search("usguri") << endl;
     
-    if(trie->search("lolzinho69"))
-        cout  << "lolzinho69: " << "found" << endl;
-    else
-        cout  << "lolzinho69: " << "not found" << endl;
-
-    if(trie->search("usguri"))
-        cout  << "usguri: " << "found" << endl;
-    else
-        cout  << "usguri: " << "not found" << endl;
-
-    if(trie->search("alex andre"))
-        cout  << "alex andre: " << "found" << endl;
-    else
-        cout  << "alex andre: " << "not found" << endl;
-
-    if(trie->search("lolzinho"))
-        cout  << "lolzinho: " << "found" << endl;
-    else
-        cout  << "lolzinho: " << "not found" << endl;
-    
-    if(trie->search("mãno do céu: 2"))
-        cout  << "mãno do céu: 2: " << "found" << endl;
-    else
-        cout  << "mãno do céu: 2: " << "not found" << endl;
-
     cout << "-----";
     cout << endl << "Test 'search prefix' " << endl;
-    vector<string> output = trie->search_prefix("lol");
+    vector<string> output = trie->search_prefix("\"Star T");
     cout << endl;
     cout << "Movie ID" << ";" << "Title" << ";" <<"Genres" << endl;
     for(int i = 0 ; i < output.size(); i++)
         cout << output[i] << ";"<< endl;
-
-    output = trie->search_prefix("Cara");
-    cout << endl;
-    cout << "MovieID" << ";" << "Title" << ";" <<"Genres" << endl;
-    for(int i = 0 ; i < output.size(); i++)
-        cout << output[i] << ";"<< endl;
-
-    cout << "-----";
-    cout << endl << "Test 'search prefix' id" << endl;
-    vector<int> output_id = trie->search_prefix_id("Cara");
-    cout << "Movie ID" << ";" << "Title" << ";" <<"Genres" << endl;
-    for(int i = 0 ; i < output_id.size(); i++)
-        cout << output_id[i] << ";"<< endl;
-
-    output_id = trie->search_prefix_id("lol");
-    for(int i = 0 ; i < output_id.size(); i++)
-        cout << output_id[i] << ";"<< endl;
 
 }
 
@@ -271,7 +220,7 @@ void testLoadMovies(){
     vector<Movie*> movies = loadMovie("../data/movie_clean.csv");
 
     cout << "MovieID , Title , Genres" << endl;
-    for(int i=0;i<20;i++){
+    for(int i=0;i<10;i++){
         cout << movies[i]->getMovieId() << " , " << movies[i]->getTitle() << " , ";
         vector<string> genres = movies[i]->getGenres();
         for (int i=0;i<genres.size();i++)
@@ -290,7 +239,7 @@ void testLoadTags(){
     vector<tuple<int, string>> movie_tag = loadTag("../data/tag_clean.csv");
 
     cout << "MovieID , Tag" << endl;
-    for(int i=0;i<20;i++){
+    for(int i=0;i<10;i++){
         cout << get<0>(movie_tag[i]) << " , " << get<1>(movie_tag[i]) << endl;
     }
     cout << "..." << endl << endl;

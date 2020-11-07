@@ -11,6 +11,7 @@
 #include "User.hpp"
 #include "HashUsers.hpp"
 #include "HashMovies.hpp"
+#include "TrieTreeMovie.hpp"
 
 using namespace std;
 
@@ -26,7 +27,8 @@ using namespace std;
     vector<tuple<int, string>> loadTag(string name);
 
     void loadMiniRating(string name, HashUsers* hash);
-    // template test
+    
+    TrieNodeMovie* loadTrieTreeMovie(vector<Movie*> movies);
 
 
 

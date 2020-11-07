@@ -42,7 +42,7 @@ int HashUsers::getTableSize(){
 }
 
 void HashUsers::printHashTable(){
-    for (int i = 0 ; i < 20 ; i++){
+    for (int i = 0 ; i < 10 ; i++){
         cout << i;
         for (auto x : table[i]){
             cout << "-->" << x->getUserId() << ",";
