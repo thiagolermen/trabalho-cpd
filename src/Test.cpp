@@ -15,6 +15,7 @@ using namespace std;
 
 void testTrieTreeMovie(){
 
+    cout << endl;
     cout << "===========================================" << endl;
     cout << "TESTE DA ESTRUTURA DE DADOS TRIE TREE MOVIE" << endl;
     cout << "===========================================" << endl;
@@ -40,29 +41,27 @@ void testTrieTreeMovie(){
 }
 
 void testTrieTreeTag(){
-
-    TrieNodeTag* trie = new TrieNodeTag();
-
-    trie->insert(1, "thithigrao");
-    trie->insert(2, "lolzinho");
-    trie->insert(3, "alex andre");
-    trie->insert(4, "thithigrao");
-    trie->insert(5, "Carai tio");
-    trie->insert(5, "usguri");
-
+    cout << endl;
     cout << "=========================================" << endl;
     cout << "TESTE DA ESTRUTURA DE DADOS TRIE TREE TAG" << endl;
     cout << "=========================================" << endl;
-    vector<int> aux = trie->search("thithigrao");
+
+    TrieNodeTag* trie = new TrieNodeTag();
+
+    vector<tuple<int, string>> movie_tag = loadTag("../data/tag_clean.csv");
+
+    trie = loadTrieTreeTag(movie_tag);
+    
+    vector<int> aux = trie->search("\"dark hero\"");
     if(!aux.empty()){
-        cout << "thithigrao: ";
+        cout << "'dark hero' movies found: ";
         for (int i = 0 ; i < aux.size() ; i++){
             cout << aux[i] << " ";
         }
         cout << endl;
     }  
     else
-        cout  << "thithigrao: " << "not found" << endl;
+        cout  << "dark hero: " << "not found" << endl;
 
     aux = trie->search("Carai tio");
     if(!aux.empty()){
@@ -100,6 +99,12 @@ void testTrieTreeTag(){
 
 void testHashMovies(){
 
+
+    cout << endl;
+    cout << "========================================================" << endl;
+    cout << "     TESTE DA ESTRUTURA DE DADOS HASH TABLE MOVIES      " << endl;
+    cout << "========================================================" << endl;
+
     Movie m1("thithigrao", 1, {"Comédia", "Terror"});
     Movie m2("lolzinho", 2, {"Comédia"});
     Movie m3("alex andre", 3, {"Comédia"});
@@ -115,10 +120,6 @@ void testHashMovies(){
     movies.insertKey(&m4);
     movies.insertKey(&m5);
     movies.insertKey(&m6);
-
-    cout << "========================================================" << endl;
-    cout << "     TESTE DA ESTRUTURA DE DADOS HASH TABLE MOVIES      " << endl;
-    cout << "========================================================" << endl;
 
 
     cout << "-----";
@@ -232,6 +233,7 @@ void testLoadMovies(){
 
 void testLoadTags(){
 
+    cout << endl;
     cout << "========================================================" << endl;
     cout << "                TESTE DA FUNÇÃO LOAD TAGS               " << endl;
     cout << "========================================================" << endl;
@@ -271,10 +273,10 @@ int main()
     testHashUsers();
 
     // Load Movies test
-    testLoadMovies();
+    // testLoadMovies();
 
     // Load Tags test
-    testLoadTags();
+    // testLoadTags();
 
     // Load Mini Rating Test
     testloadMiniRating();

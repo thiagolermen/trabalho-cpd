@@ -12,6 +12,7 @@
 #include "HashUsers.hpp"
 #include "HashMovies.hpp"
 #include "TrieTreeMovie.hpp"
+#include "TrieTreeTag.hpp"
 
 using namespace std;
 
@@ -29,6 +30,8 @@ using namespace std;
     void loadMiniRating(string name, HashUsers* hash);
     
     TrieNodeMovie* loadTrieTreeMovie(vector<Movie*> movies);
+
+    TrieNodeTag* loadTrieTreeTag(vector<tuple<int, string>> id_name);
 
 
 

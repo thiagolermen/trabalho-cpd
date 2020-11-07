@@ -142,3 +142,15 @@ TrieNodeMovie* loadTrieTreeMovie(vector<Movie*> movies){
     return output;
 
 }
+
+TrieNodeTag* loadTrieTreeTag(vector<tuple<int, string>> id_name){
+
+    TrieNodeTag* output = new TrieNodeTag();
+
+    for (vector<tuple<int, string>>::iterator it = id_name.begin(); it != id_name.end();it++){
+        output->insert(get<0>(*it), get<1>(*it));
+    }
+
+    return output;
+
+}
