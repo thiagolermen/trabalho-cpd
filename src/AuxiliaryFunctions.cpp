@@ -154,3 +154,21 @@ TrieNodeTag* loadTrieTreeTag(vector<tuple<int, string>> id_name){
     return output;
 
 }
+
+void setRatingByUsers(HashUsers* users, HashMovies* movies){
+    for (int i = 0;i < users->getTableSize();i++){
+        //cout << "DALE0" << endl;
+        for (list<User*>::iterator it = users->table[i].begin() ; it != users->table[i].end() ; it++){
+            //cout << "DALE1" << endl;
+            vector<tuple<int, float>> analised_movies = (*it)->getAnalysedMovies();
+            for (int j = 0 ; j < analised_movies.size() ; j++){
+                //cout << "DALE2" << endl;
+                int movie_id = get<0>(analised_movies[j]);
+                Movie* aux = movies->search(movie_id);
+                aux->rating_avg += get<1>(analised_movies[j]);
+                (aux->count)++;
+                //cout << movie_id << "," << aux->rating_avg << "," << aux->count << endl;
+            }
+        }
+    }
+}

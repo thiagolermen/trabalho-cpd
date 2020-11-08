@@ -10,6 +10,9 @@
 #include "Movie.hpp"
 #include "User.hpp"
 
+#define TABLE_USER_SZ 138493
+#define TABLE_MOVIE_SZ 27280
+
 using namespace std;
 
 
@@ -248,6 +251,7 @@ void testLoadTags(){
 }
 
 void testloadMiniRating(){
+    cout << endl;
     cout << "========================================================" << endl;
     cout << "           TESTE DA FUNÇÃO LOAD MINI RATING             " << endl;
     cout << "========================================================" << endl;
@@ -258,19 +262,59 @@ void testloadMiniRating(){
     h.printHashTable();
 }
 
+void testSetRatingByUsers(){
+    cout << endl;
+    cout << "========================================================" << endl;
+    cout << "           TESTE DA FUNÇÃO SET RATING BY USERS          " << endl;
+    cout << "========================================================" << endl;
+
+    vector<Movie*> vector_movies = loadMovie("../data/movie_clean.csv");
+
+    HashMovies* movies = new HashMovies(TABLE_MOVIE_SZ);
+    HashUsers* users = new HashUsers(TABLE_USER_SZ);
+
+    // Init movies hash
+    for(vector<Movie*>::iterator it = vector_movies.begin() ; it != vector_movies.end() ; it++)
+        movies->insertKey((*it));
+    
+    // Init users hash
+    loadMiniRating("../data/minirating.csv", users);
+
+    // Call the func to update avg and count of each movie
+    setRatingByUsers(users, movies);
+
+    cout << "PASSEI" << endl;
+    cout << "MovieID ; Title ; Rating ; Count" << endl;
+    for (int i=0 ; i < 100 ;i++){
+        // All the movies of i
+        for (list<Movie*>::iterator it = movies->table[i].begin();it != movies->table[i].end() ; it++){
+            cout << (*it)->getMovieId() << " , " << 
+            (*it)->getTitle() << " , "<< (*it)->rating_avg << " , " << (*it)->count << endl;
+        }
+    }
+    cout << "..." << endl << endl;
+
+    Movie* printed = movies->search(260);
+    cout << printed->getMovieId() << " , " << 
+            printed->getTitle() << " , "<< printed->rating_avg << " , " << printed->count << endl;
+
+
+
+}
+
 int main()
 {
     // Trie Tree Movie Test
-    testTrieTreeMovie();
+    //testTrieTreeMovie();
 
     // Trie Tree Tag Test
-    testTrieTreeTag();
+    //testTrieTreeTag();
 
     // Hash Movies test
-    testHashMovies();
+    //testHashMovies();
 
     // Hash Users test
-    testHashUsers();
+    //testHashUsers();
 
     // Load Movies test
     // testLoadMovies();
@@ -279,7 +323,10 @@ int main()
     // testLoadTags();
 
     // Load Mini Rating Test
-    testloadMiniRating();
+    //testloadMiniRating();
+
+    // Set Rating By Users Test
+    testSetRatingByUsers();
 
     return 0;
 }

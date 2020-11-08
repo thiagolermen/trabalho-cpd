@@ -17,10 +17,11 @@ class HashMovies{
     // Data members can be accessed using methods
     private:
         int TABLE_SIZE;
-        list<Movie*> *table; // Pointer to an array containing the lists
     
     // Methods
     public:
+
+        list<Movie*> *table; // Pointer to an array containing the lists
 
         HashMovies(int sz); // Constructor
         

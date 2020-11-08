@@ -33,6 +33,8 @@ using namespace std;
 
     TrieNodeTag* loadTrieTreeTag(vector<tuple<int, string>> id_name);
 
+    void setRatingByUsers(HashUsers* users, HashMovies* movies);
+
 
 
 #endif

@@ -16,10 +16,11 @@ class HashUsers{
     // Data members can be accessed using methods
     private:
         int TABLE_SIZE;
-        list<User*> *table; // Pointer to an array containing the lists
     
     // Methods
     public:
+
+        list<User*> *table; // Pointer to an array containing the lists
 
         HashUsers(int sz); // Constructor
         
