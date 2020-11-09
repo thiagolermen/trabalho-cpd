@@ -9,6 +9,7 @@
 #include "TrieTreeTag.hpp"
 #include "Movie.hpp"
 #include "User.hpp"
+#include "Menu.hpp"
 
 #define TABLE_USER_SZ 138493
 #define TABLE_MOVIE_SZ 27280
@@ -326,7 +327,9 @@ int main()
     //testloadMiniRating();
 
     // Set Rating By Users Test
-    testSetRatingByUsers();
+    //testSetRatingByUsers();
+
+    menu();
 
     return 0;
 }

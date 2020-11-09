@@ -16,9 +16,6 @@
 
 using namespace std;
 
-
-// Sorted list of the implemented auxiliary functions
-
     void printVector_int(vector<int> input);
 
     void printVector_string(vector<string> input);
