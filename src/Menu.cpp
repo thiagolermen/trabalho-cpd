@@ -15,18 +15,13 @@ vector<string> getCommand(){
     return command;
 }
 
-
 void menu(){
     system("clear");
     
     vector<string> command;
-
     command = getCommand();
 
     cout << "command: ";
     for(int i = 0; i < command.size(); i++)
         cout << command[i] << endl;
-
-
-
 }

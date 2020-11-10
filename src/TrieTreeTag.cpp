@@ -19,7 +19,12 @@ void TrieNodeTag::insert(int movie_id, string tag)
     }
     // set current node as the end of the string
     current->isEndOfWord = true;
-    current->movieIds.push_back(movie_id);
+    bool exists = false;
+    for (int i=0;i<current->movieIds.size();i++)
+        if(current->movieIds[i] == movie_id)
+            exists = true;
+    if (!exists)
+        current->movieIds.push_back(movie_id);
 }
 
 vector<int> TrieNodeTag::search(string input)

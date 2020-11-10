@@ -50,9 +50,12 @@ vector<Movie*> loadMovie(string name){
 
     while (getline(file, movie_id, ',')) {
 
-        getline(file, title, ',') ;
+        getline(file, title, '\"') ;
+        getline(file, title, '\"') ;
 
-        getline(file, genre) ;
+        getline(file, genre,'\"') ;
+        getline(file, genre,'\"') ;
+        getline(file, aux) ;
 
         genres = split_string(genre);
 
@@ -172,3 +175,4 @@ void setRatingByUsers(HashUsers* users, HashMovies* movies){
         }
     }
 }
+
