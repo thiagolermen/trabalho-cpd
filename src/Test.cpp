@@ -375,7 +375,7 @@ void testSearchTopGenres(Global* global, int top_x, string genre){
     vector<Movie*> selected_movies;
     for (int i = 0 ; i < m.size() ; i++){
         Movie* aux = global->movies->search(m[i]);
-        if (aux->count >= 5)
+        if (aux->count >= 1000)
             selected_movies.push_back(global->movies->search(m[i]));  
     }
 

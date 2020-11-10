@@ -43,7 +43,7 @@ void Global::init(){
         Init users structure          
     */
     // Init users hash
-    loadMiniRating("../data/minirating.csv", users);
+    loadMiniRating("../data/rating.csv", users);
     /*============================*/
 
     /* Update hash movies (rating and count) */
