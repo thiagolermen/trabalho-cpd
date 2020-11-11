@@ -459,7 +459,6 @@ void testSearchTags(Global* global, vector<string> tags){
 
 }
 
-
 void testGlobal(){
 
     cout << endl;
@@ -523,9 +522,10 @@ int main()
     //testSetRatingByUsers();
 
     // Global class test
-    testGlobal();
+    //testGlobal();
 
-    //menu();
+    // test Menu
+    menu();
 
     return 0;
 }

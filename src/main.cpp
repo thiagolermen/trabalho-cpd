@@ -1,14 +1,10 @@
-#include <iostream>
-
-#include "BinarySearchTree.hpp"
-#include "SeparateChaining.hpp"
-#include "TrieTree.hpp"
+#include "Menu.hpp"
 
 using namespace std;
 
 int main()
 {
-
+    menu();
 
     return 0;
 }
