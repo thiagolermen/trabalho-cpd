@@ -7,8 +7,8 @@ void searchPrefix(Global* global, string prefix){
     cout << "===================================================" << endl;
 
     vector<int> s = global->movies_tree->search_prefix_id(prefix);
-    cout << "Search for: < " << prefix << " >" << endl;
-    cout << "MovieID , Title , Genres , Rating_avg , count" << endl;
+    cout << "Search for: <" << prefix << ">" << endl;
+    cout << "MovieID , Title , Genres , Rating_avg , count" << endl << endl;
     for (int i = 0 ; i < s.size() ; i++){
         Movie* m = global->movies->search(s[i]);
         vector<string> g = m->getGenres();
@@ -25,9 +25,19 @@ void searchUser(Global* global, int user_id){
     cout << "                    SEARCH USER                    " << endl;
     cout << "===================================================" << endl;
     cout << "Search for user: " << user_id << endl;
-    cout << "User_rating , Title , Global_rating , count" << endl;
+    cout << "User_rating , Title , Global_rating , count" << endl << endl;
+
+    if(user_id < 0){
+        cout << "the userID must be greater than 0." << endl;
+        return;
+    }
 
     User* u = global->users->search(user_id);
+
+    if(u == nullptr){
+        cout << "user not found." << endl;
+        return;
+    }    
     vector<tuple<int,float>> am = u->getAnalysedMovies();
     for (int i = 0 ; i < am.size() ; i++){
         Movie* m = global->movies->search(get<0>(am[i]));
@@ -40,10 +50,20 @@ void searchTopGenres(Global* global, int top_x, string genre){
     cout << "===================================================" << endl;
     cout << "               SEARCH TOP N GENRE                  " << endl;
     cout << "===================================================" << endl;
-    cout << "Search for: top " << top_x << " < " << genre << " >" << endl;
-    cout << "Title , Genres , Rating , Count" << endl;
+    cout << "Search for: top " << top_x << "  <" << genre << ">" << endl;
+    cout << "Title , Genres , Rating , Count" << endl << endl;
 
     Genres* g = global->genres->search(genre);
+
+    if(top_x < 0){
+        cout << "top N must be greater than 0" << endl;
+        return;
+    }
+
+    if(g == nullptr){
+        cout << endl << "genre not found" << endl;
+        return;
+    }
     
     vector<int> m = g->movies;
     vector<Movie*> selected_movies;
@@ -88,8 +108,8 @@ void searchTags(Global* global, vector<string> tags){
     cout << "===================================================" << endl;
     cout << "Search for: ";
     for(int i = 0 ; i < tags.size() ; i++)
-        cout << "< " << tags[i] << " > ";
-    cout << endl;
+        cout << " <" << tags[i] << "> ";
+    cout << endl << endl;
 
     vector<vector<int>> ids;
     for (int i = 0 ; i < tags.size() ; i++)

@@ -19,7 +19,6 @@ class Movie{
 
         // Constructor
         Movie(string title, int movie_id, vector<string> genres);
-        Movie();
 
         // Getters and Setters
         string getTitle();

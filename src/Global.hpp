@@ -9,12 +9,14 @@
 #include "TrieTreeTag.hpp"
 #include "Movie.hpp"
 #include "User.hpp"
-#include "Menu.hpp"
+
 
 using namespace std;
 
-class Global{    
+class Global{
+    
     public:
+    
         HashMovies* movies;
         HashGenres* genres;
         HashUsers* users;
