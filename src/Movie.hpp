@@ -28,7 +28,6 @@ class Movie{
         void setMovieId(int movie_id);
         vector<string> getGenres();
         void setGenres(vector<string> genres);
-
 };
 
 #endif

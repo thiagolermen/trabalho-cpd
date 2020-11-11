@@ -1,30 +1,30 @@
 #include "Menu.hpp"
 
-
-
 void searchPrefix(Global* global, string prefix){
     cout << endl;
-    cout << "-------------------------------------------------" << endl;
-    cout << "                TEST SEARCH PREFIX                 " << endl;
+    cout << "===================================================" << endl;
+    cout << "                  SEARCH PREFIX                    " << endl;
+    cout << "===================================================" << endl;
+
     vector<int> s = global->movies_tree->search_prefix_id(prefix);
-    cout << "Busca por " << "'" << prefix << "'" << endl;
+    cout << "Search for: < " << prefix << " >" << endl;
     cout << "MovieID , Title , Genres , Rating_avg , count" << endl;
     for (int i = 0 ; i < s.size() ; i++){
         Movie* m = global->movies->search(s[i]);
         vector<string> g = m->getGenres();
         cout << m->getMovieId() << " , " << m->getTitle() << " , " << "|";
-        for (int j = 0 ; j < g.size() ; j++){
+        for (int j = 0 ; j < g.size() ; j++)
             cout << g[j] << "|";
-        }
         cout << " , " << (m->rating_avg)/(m->count) << " , " << m->count << endl;
     }
 }
 
 void searchUser(Global* global, int user_id){
     cout << endl;
-    cout << "-------------------------------------------------" << endl;
-    cout << "                TEST SEARCH USER                 " << endl;
-    cout << "Busca por " << user_id << endl;
+    cout << "===================================================" << endl;
+    cout << "                    SEARCH USER                    " << endl;
+    cout << "===================================================" << endl;
+    cout << "Search for user: " << user_id << endl;
     cout << "User_rating , Title , Global_rating , count" << endl;
 
     User* u = global->users->search(user_id);
@@ -37,9 +37,10 @@ void searchUser(Global* global, int user_id){
 
 void searchTopGenres(Global* global, int top_x, string genre){
     cout << endl;
-    cout << "-------------------------------------------------" << endl;
-    cout << "             TEST SEARCH TOP GENRES              " << endl;
-    cout << "Busca por " << genre << " top "<< top_x << endl;
+    cout << "===================================================" << endl;
+    cout << "               SEARCH TOP N GENRE                  " << endl;
+    cout << "===================================================" << endl;
+    cout << "Search for: top " << top_x << " < " << genre << " >" << endl;
     cout << "Title , Genres , Rating , Count" << endl;
 
     Genres* g = global->genres->search(genre);
@@ -78,29 +79,25 @@ void searchTopGenres(Global* global, int top_x, string genre){
         }
         cout << " , " << (top_rating[i]->rating_avg)/(top_rating[i]->count) << " , " << top_rating[i]->count << endl;
     }
-
-
-
 }
 
 void searchTags(Global* global, vector<string> tags){
     cout << endl;
-    cout << "-------------------------------------------------" << endl;
-    cout << "                TEST SEARCH TAGS                 " << endl;
-    cout << "Busca por ";
+    cout << "===================================================" << endl;
+    cout << "                   SEARCH TAGS                     " << endl;
+    cout << "===================================================" << endl;
+    cout << "Search for: ";
     for(int i = 0 ; i < tags.size() ; i++)
-        cout << "'" << tags[i] << "'" << " , ";
+        cout << "< " << tags[i] << " > ";
     cout << endl;
 
     vector<vector<int>> ids;
-    for (int i = 0 ; i < tags.size() ; i++){
+    for (int i = 0 ; i < tags.size() ; i++)
         ids.push_back(global->tag_tree->search(tags[i]));
-    }
 
     vector<int> common_movies;
     vector<int> aux = ids[0];
 
-    // aux
     for(int i = 0; i < aux.size(); i++){
         bool isFound = true;
         for(int j = 0; j < ids.size(); j++){
@@ -128,17 +125,14 @@ void searchTags(Global* global, vector<string> tags){
         }
         cout << " , " << (m->rating_avg)/(m->count) << " , " << m->count << endl;
     }
-
-
 }
 
 void stringSplit(string str, string delim, vector<string>& results){
     int cutAt;
 
     while((cutAt = str.find_first_of(delim)) != str.npos){
-        if(cutAt > 0) {
+        if(cutAt > 0)
             results.push_back(str.substr(0,cutAt));
-        }
         str = str.substr(cutAt+1);
     }
     if(str.length() > 0)

@@ -36,7 +36,6 @@ using namespace std;
     // return in the first pos the command, others pos have the parameters
     vector<string> getCommand();
 
-
 // menu
     void menu();
 

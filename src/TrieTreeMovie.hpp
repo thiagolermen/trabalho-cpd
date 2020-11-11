@@ -20,9 +20,8 @@ class TrieNodeMovie{
         TrieNodeMovie(){// Constructor
             this->isEndOfWord = false;
 
-            for(int i = 0; i < USED_ALPHABET_SIZE; i++){
+            for(int i = 0; i < USED_ALPHABET_SIZE; i++)
                 this->children[i] = nullptr;
-            }
         }
 
     void insert(int movie_id, string title);
@@ -36,7 +35,6 @@ class TrieNodeMovie{
     vector<string> search_prefix(string input);
 
     vector<int> search_prefix_id(string input);
-
 };
 
 #endif

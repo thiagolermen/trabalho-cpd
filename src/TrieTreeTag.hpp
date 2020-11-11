@@ -20,15 +20,13 @@ class TrieNodeTag{
         TrieNodeTag(){// Constructor
             this->isEndOfWord = false;
 
-            for(int i = 0; i < USED_ALPHABET_SIZE; i++){
+            for(int i = 0; i < USED_ALPHABET_SIZE; i++)
                 this->children[i] = nullptr;
-            }
         }
 
     void insert(int movie_id, string tag);
 
     vector<int> search(string input);
-
 };
 
 #endif

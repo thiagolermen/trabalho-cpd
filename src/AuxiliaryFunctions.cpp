@@ -22,14 +22,15 @@ vector<string> split_string(string s){
 
     size_t pos = 0;
     string token;
+
     while ((pos = s.find(delimiter)) != string::npos) {
         token = s.substr(0, pos);
         output.push_back(token);
         s.erase(0, pos + delimiter.length());
     }
+
     output.push_back(s);
     return output;
-
 }
 
 vector<Movie*> loadMovie(string name){
@@ -61,7 +62,6 @@ vector<Movie*> loadMovie(string name){
 
         Movie* aux =  new Movie(title, stoi(movie_id), genres);
         movies.push_back(aux);
-
     }
 
     file.close();
@@ -131,40 +131,35 @@ void loadMiniRating(string name, HashUsers* hash){
     }
 
     file.close();
-
 }
 
 TrieNodeMovie* loadTrieTreeMovie(vector<Movie*> movies){
 
     TrieNodeMovie* output = new TrieNodeMovie();
 
-    for (vector<Movie*>::iterator it = movies.begin(); it != movies.end();it++){
+    for (vector<Movie*>::iterator it = movies.begin(); it != movies.end();it++)
         output->insert((*it)->getMovieId(), (*it)->getTitle());
-    }
 
     return output;
-
 }
 
 TrieNodeTag* loadTrieTreeTag(vector<tuple<int, string>> id_name){
 
     TrieNodeTag* output = new TrieNodeTag();
 
-    for (vector<tuple<int, string>>::iterator it = id_name.begin(); it != id_name.end();it++){
+    for (vector<tuple<int, string>>::iterator it = id_name.begin(); it != id_name.end();it++)
         output->insert(get<0>(*it), get<1>(*it));
-    }
 
     return output;
-
 }
 
 void setRatingByUsers(HashUsers* users, HashMovies* movies){
-    for (int i = 0;i < users->getTableSize();i++){
+    for (int i = 0; i < users->getTableSize(); i++){
         //cout << "DALE0" << endl;
-        for (list<User*>::iterator it = users->table[i].begin() ; it != users->table[i].end() ; it++){
+        for (list<User*>::iterator it = users->table[i].begin(); it != users->table[i].end() ; it++){
             //cout << "DALE1" << endl;
             vector<tuple<int, float>> analised_movies = (*it)->getAnalysedMovies();
-            for (int j = 0 ; j < analised_movies.size() ; j++){
+            for (int j = 0; j < analised_movies.size(); j++){
                 //cout << "DALE2" << endl;
                 int movie_id = get<0>(analised_movies[j]);
                 Movie* aux = movies->search(movie_id);

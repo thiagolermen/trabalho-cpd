@@ -19,7 +19,6 @@
 
 using namespace std;
 
-
 void testTrieTreeMovie(){
 
     cout << endl;
