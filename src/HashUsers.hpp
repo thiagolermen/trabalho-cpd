@@ -35,9 +35,6 @@ class HashUsers{
         int getTableSize();
 
         void printHashTable();
-
-        
-
 };
 
 #endif

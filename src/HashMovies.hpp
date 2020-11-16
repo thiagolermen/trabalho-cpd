@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 // Hash Map, using separate chaining, declaration
 class HashMovies{
 
@@ -36,11 +35,6 @@ class HashMovies{
         int getTableSize();
 
         void printHashTable();
-
-        
-
 };
-
-
 
 #endif

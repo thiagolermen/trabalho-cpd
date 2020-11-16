@@ -5,8 +5,8 @@
 #include <string>
 #include <cmath>
 #include "Genres.hpp"
-using namespace std;
 
+using namespace std;
 
 // Hash Map, using separate chaining, declaration
 class HashGenres{

@@ -22,9 +22,8 @@ class TrieNodeMovie{
         TrieNodeMovie(){
             this->isEndOfWord = false;
 
-            for(int i = 0; i < USED_ALPHABET_SIZE; i++){
+            for(int i = 0; i < USED_ALPHABET_SIZE; i++)
                 this->children[i] = nullptr;
-            }
         }
 
     // Inser a new word in the tree
@@ -43,7 +42,6 @@ class TrieNodeMovie{
 
     // Search for a given input (prefix) in the trie and returns all the movie_ids that have the given prefix
     vector<int> search_prefix_id(string input);
-
 };
 
 #endif

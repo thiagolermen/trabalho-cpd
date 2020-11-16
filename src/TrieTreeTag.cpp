@@ -9,8 +9,7 @@ void TrieNodeTag::insert(int movie_id, string tag)
     // starts from the root node
     TrieNodeTag* current = this;
 
-    for(int i = 0; i < tag.size(); i++)
-    {
+    for(int i = 0; i < tag.size(); i++){
         // if the path doesnt exists uses the constructor to create a new node
         if(current->children[tag[i]] == nullptr)
             current->children[tag[i]] = new TrieNodeTag();
@@ -51,4 +50,3 @@ vector<int> TrieNodeTag::search(string input)
     // returning the flag that says if the current character is the end of the string
     return current->movieIds;
 }
-

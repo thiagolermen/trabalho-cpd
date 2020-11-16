@@ -10,7 +10,6 @@ HashMovies::HashMovies(int sz){
 
 // Hash function from map values to (hash) key
 int HashMovies::hashFunction(int id){
-
     int index = 0;
 
     index = (id & 0x7fffffff) % TABLE_SIZE;
@@ -18,16 +17,12 @@ int HashMovies::hashFunction(int id){
     return index;
 }
 
-
 void HashMovies::insertKey(Movie* key){
-
     int index = hashFunction(key->getMovieId()); // Get the hash index
     table[index].push_back(key); // Insert 'key' to the linked list at 'index'
-
 }
 
 Movie* HashMovies::search(int key){
-
     int index = hashFunction(key); // Get the hash index
 
     // Find the key in the list
@@ -45,9 +40,8 @@ int HashMovies::getTableSize(){
 void HashMovies::printHashTable(){
     for (int i = 0 ; i < TABLE_SIZE ; i++){
         cout << i;
-        for (auto x : table[i]){
+        for (auto x : table[i])
             cout << "-->" << x;
-        }
         cout << endl;
     }
 }

@@ -9,7 +9,6 @@ HashUsers::HashUsers(int sz){
 
 // Hash function from map values to (hash) key
 int HashUsers::hashFunction(int id){
-
     int index = 0;
 
     index = (id & 0x7fffffff) % TABLE_SIZE;
@@ -17,16 +16,12 @@ int HashUsers::hashFunction(int id){
     return index;
 }
 
-
 void HashUsers::insertKey(User* key){
-
     int index = hashFunction(key->getUserId()); // Get the hash index
     table[index].push_back(key); // Insert 'key' to the linked list at 'index'
-
 }
 
 User* HashUsers::search(int key){
-
     int index = hashFunction(key); // Get the hash index
 
     // Find the key in the list
