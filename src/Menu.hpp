@@ -24,20 +24,20 @@
 using namespace std;
 
 
-// search functions
+    // search functions
     void searchPrefix(Global* global, string prefix);
     void searchUser(Global* global, int user_id);
     void searchTopGenres(Global* global, int top_x, string genre);
     void searchTags(Global* global, vector<string> tags);
 
-// menu functions
+    // menu functions
     void stringSplit(string str, string delim, vector<string>& results);
 
     // return in the first pos the command, others pos have the parameters
     vector<string> getCommand();
 
 
-// menu
+    // runs the menu
     void menu();
 
 #endif

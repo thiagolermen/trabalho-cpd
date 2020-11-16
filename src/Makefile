@@ -6,7 +6,7 @@ CXX = g++
 # FLAGS do compilador .cpp -> .o
 CXXFLAGS = -std=c++11 -g
 # FLAGS do linker
-LDFLAGS = 
+LDFLAGS =
 
 # Comando default: adicione os testes aqui
 all: main.exe Test.exe

@@ -2,12 +2,13 @@
 
 using namespace std;
 
-
+// Insert a word in the tree
 void TrieNodeMovie::insert(int movie_id, string title)
 {
     // starts from the root node
     TrieNodeMovie* current = this;
 
+    // Goes through each charachter
     for(int i = 0; i < title.size(); i++)
     {
         // if the path doesnt exists uses the constructor to create a new node
@@ -44,6 +45,7 @@ int TrieNodeMovie::search(string input)
     return current->movieId;
 }
 
+// Check if a given node has children
 bool TrieNodeMovie::haveChildren(TrieNodeMovie* current)
 {
     for(int i = 0; i < USED_ALPHABET_SIZE; i++)
@@ -54,6 +56,7 @@ bool TrieNodeMovie::haveChildren(TrieNodeMovie* current)
     return false;
 }
 
+// Goes through each symbol of the alphabet searching for a specific symbol
 void TrieNodeMovie::walkThrough(vector<string> &output){
     
     if (this->isEndOfWord){
@@ -67,6 +70,7 @@ void TrieNodeMovie::walkThrough(vector<string> &output){
     }
 }
 
+// Search for a given word in the tree and return all the words that have the given prefix
 vector<string> TrieNodeMovie::search_prefix(string input)
 {
     vector<string> output;
@@ -102,12 +106,15 @@ vector<string> TrieNodeMovie::search_prefix(string input)
     return output;
 }
 
+// Search for a given word in the tree and return all the movie_ids that have the given prefix
 vector<int> TrieNodeMovie::search_prefix_id(string input)
 {
     vector<int> output;
 
+    // Search for all words that have the given prefix
     vector<string> aux = search_prefix(input);
 
+    // Find the movie_ids related to the words found
     for(int i = 0; i< aux.size(); i++){
         int k = search(aux[i]);
         if (k != -1){

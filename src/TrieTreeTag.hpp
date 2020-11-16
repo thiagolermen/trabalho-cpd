@@ -12,12 +12,14 @@ using namespace std;
 class TrieNodeTag{
 
     public:
+        // array of alphabet symbols (pointer to a charachter related to the last charachter)
         TrieNodeTag* children[USED_ALPHABET_SIZE];
-        bool isEndOfWord;
-        vector<int> movieIds;
-        string tag;
+        bool isEndOfWord; // boolean to check if the node is th end of word
+        vector<int> movieIds; // vector including all movies_id that that have the prefix
+        string tag; // if isEndOfWord is true include the string tag
 
-        TrieNodeTag(){// Constructor
+        // Constructor
+        TrieNodeTag(){
             this->isEndOfWord = false;
 
             for(int i = 0; i < USED_ALPHABET_SIZE; i++){
@@ -25,9 +27,10 @@ class TrieNodeTag{
             }
         }
 
-    void insert(int movie_id, string tag);
+    void insert(int movie_id, string tag); // insert a new tag
 
-    vector<int> search(string input);
+    // given a input, search for the string given and returns a vector of movies_ids that have the input 
+    vector<int> search(string input); 
 
 };
 

@@ -9,13 +9,13 @@ using namespace std;
 
 class Movie{
     private:
-        string title;
+        string title; // title of the movie
         int movie_id;
         vector<string> genres;
         
     public:
-        float rating_avg;
-        int count;
+        float rating_avg; // the sum of all averages given for the movie
+        int count; // how many users rated the movie
 
         // Constructor
         Movie(string title, int movie_id, vector<string> genres);

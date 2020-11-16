@@ -11,9 +11,9 @@
 using namespace std;
 
 class User{
-    private:
+    private:        
         int user_id;
-        vector<tuple<int,float>> analysed_movies;
+        vector<tuple<int,float>> analysed_movies; // vector of tuples type vector<tuple <movie_id, rating>>
 
     public:
         // Constructor

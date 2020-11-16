@@ -2,10 +2,12 @@
 
 using namespace std;
 
+// Constructor
 User::User(int user_id){
     this->user_id = user_id;
 }
 
+// Getters and setters
 int User::getUserId(){
     return this->user_id;
 }

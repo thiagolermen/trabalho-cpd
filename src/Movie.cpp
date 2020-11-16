@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Constructor
 Movie::Movie(string title, int movie_id, vector<string> genres){
     this->title = title;
     this->movie_id = movie_id;
@@ -13,7 +14,7 @@ Movie::Movie(){
     
 }
 
-
+// Getters and setters
 string Movie::getTitle(){
     return this->title;
 }

@@ -19,6 +19,11 @@
 
 using namespace std;
 
+/*
+    Funcoes utilzidas com objetivo de realizacoes
+    de testes. Desconsiderar conteudo.
+*/
+
 
 void testTrieTreeMovie(){
 

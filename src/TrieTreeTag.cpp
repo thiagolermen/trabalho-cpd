@@ -3,6 +3,7 @@
 using namespace std;
 
 
+// Insert a new node tag
 void TrieNodeTag::insert(int movie_id, string tag)
 {
     // starts from the root node
@@ -27,6 +28,7 @@ void TrieNodeTag::insert(int movie_id, string tag)
         current->movieIds.push_back(movie_id);
 }
 
+// Search for a string in the tree
 vector<int> TrieNodeTag::search(string input)
 {
     vector<int> j;
@@ -35,7 +37,8 @@ vector<int> TrieNodeTag::search(string input)
         return j;
 
     TrieNodeTag* current = this;
-
+    
+    // goes through each charachter of the string
     for(int i = 0; i < input.size(); i++)
     {
         // go to next node
