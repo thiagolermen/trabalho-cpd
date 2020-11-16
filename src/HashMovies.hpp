@@ -20,16 +20,22 @@ class HashMovies{
     // Methods
     public:
 
-        list<Movie*> *table; // Pointer to an array containing the lists
+        // Pointer to an array containing the lists
+        list<Movie*> *table;
 
-        HashMovies(int sz); // Constructor
+        // Constructor
+        HashMovies(int sz);
         
+        // receives a string and returns a unsigned value representing this string
         unsigned hashCode(int id);
 
+        // receives an integer and return the respective code to the hash
         int hashFunction(int id);
 
+        // insert the movie in the hash
         void insertKey(Movie* key);
 
+        // returns a pointer to the movie node by searching for the respective ID
         Movie* search(int id);
 
         int getTableSize();
