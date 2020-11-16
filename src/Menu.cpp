@@ -1,5 +1,6 @@
 #include "Menu.hpp"
 
+
 void searchPrefix(Global* global, string prefix){
     cout << endl;
     cout << "===================================================" << endl;

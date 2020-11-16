@@ -2,6 +2,7 @@
 
 using namespace std;
 
+// Constructors
 HashUsers::HashUsers(int sz){
     this->TABLE_SIZE = sz;
     table = new list<User*>[TABLE_SIZE];
@@ -16,11 +17,13 @@ int HashUsers::hashFunction(int id){
     return index;
 }
 
+// INsert a key in hash table
 void HashUsers::insertKey(User* key){
     int index = hashFunction(key->getUserId()); // Get the hash index
     table[index].push_back(key); // Insert 'key' to the linked list at 'index'
 }
 
+// Search for a value in the hash table
 User* HashUsers::search(int key){
     int index = hashFunction(key); // Get the hash index
 
@@ -32,10 +35,12 @@ User* HashUsers::search(int key){
     return nullptr;
 }
 
+// Get the table size
 int HashUsers::getTableSize(){
     return this->TABLE_SIZE;
 }
 
+// Print the hash table
 void HashUsers::printHashTable(){
     for (int i = 0 ; i < 10 ; i++){
         cout << i;

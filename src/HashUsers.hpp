@@ -24,17 +24,17 @@ class HashUsers{
 
         HashUsers(int sz); // Constructor
         
-        unsigned hashCode(int id);
+        unsigned hashCode(int id); // Generates a hash code for an user id
 
-        int hashFunction(int id);
+        int hashFunction(int id); // Generates a hash index for an user id
 
-        void insertKey(User* key);
+        void insertKey(User* key); // Insert a new value in the hash table
 
-        User* search(int id);
+        User* search(int id); // Search for a key in hash table
 
-        int getTableSize();
+        int getTableSize(); // get the table size
 
-        void printHashTable();
+        void printHashTable(); // proint the hash table (for tests)
 };
 
 #endif
