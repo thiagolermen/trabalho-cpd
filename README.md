@@ -14,3 +14,8 @@ Para compilar a função main, podemos utilizar o seguinte comando makefile
 ```
 $ make main.exe
 ```
+
+Para limpar os arquivos inclusos no gitignore, podemos utilizar o comando makefile
+```
+$ make clear_all
+```
