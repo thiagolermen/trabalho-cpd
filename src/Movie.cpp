@@ -10,9 +10,6 @@ Movie::Movie(string title, int movie_id, vector<string> genres){
     this->rating_avg = 0;
     this->count = 0;
 }
-Movie::Movie(){
-    
-}
 
 // Getters and setters
 string Movie::getTitle(){
